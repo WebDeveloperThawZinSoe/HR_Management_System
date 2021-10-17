@@ -13,15 +13,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::middleware('auth')->group(function(){
-    Route::get('/account','PageController@index');
+    Route::get('/','PageController@index');
+    
+    /* Accounts */
+    Route::get("/accounts/show",'AccountController@index');
+    Route::get("/accounts/create",'AccountController@create');
 
+    /* Department */
+    Route::get("/department/show","DepartmentController@index");
+    Route::get("/department/create",'DepartmentController@create');
+    Route::post("/department/create",'DepartmentController@filled_data');
+    Route::get("/department/{id}/delete","DepartmentController@delete");
+    Route::get("/department/{id}/edit","DepartmentController@edit");
+    Route::post("/department/{id}/edit","DepartmentController@upgrade");
 });

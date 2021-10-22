@@ -35,7 +35,7 @@
                 <button type="submit" class="btn btn-warning btn-block mb-4">
                     Upgrate Department </button>
             </form>
-
+            <a  href="/department/show" class="btn btn-outline-primary " data-mdb-ripple-color="dark"> Back To  Department </a>
         </div>
     </div>
 </div>

@@ -37,7 +37,7 @@
               </td>
               <td>
                 <a type="button" href="/department/{{ $department->id }}/edit" class="btn btn-warning btn-sm px-3">
-                  <i class="fas fa-exclamation"></i>
+                <i class="fas fa-exclamation-triangle"></i>
                 </a>
               </td>
             </tr>

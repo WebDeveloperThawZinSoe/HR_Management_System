@@ -8,7 +8,7 @@ class PageController extends Controller
 {
     // index 
     public function index(){
-        return view("account.index");
+        return view("index");
     }
 
 

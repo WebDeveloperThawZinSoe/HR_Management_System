@@ -13,6 +13,7 @@
 <div class="container-fluid">
   <div class="row justify-content-center">
     <div class="col-md-12">
+    @include("layouts.flash_message")
       <table class="table align-middle">
         <thead>
           <tr>
@@ -29,9 +30,9 @@
           </tr>
         </thead>
         <tbody>
-          @foreach($users as $user)
+          @foreach($users as $k=>$user)
           <tr>
-            <th scope="row">{{ $user->id }}</th>
+            <th scope="row">{{ ++$k }}</th>
             <td>{{ $user->name }}</td>
             <td>{{ $user->employ_id }}</td>
             <td>{{ $user->phone }}</td>
@@ -52,19 +53,19 @@
               ?>
             </td>
             <td >
-              <button style="display: inline-block;" type="button" class="btn btn-danger btn-sm px-3">
+              <a href="/accounts/{{ $user->id }}/delete" onclick="return confirm('Delete Account Confirm')" style="display: inline-block;" type="button" class="btn btn-danger btn-sm px-3">
                 <i class="fas fa-times"></i>
-              </button>
+              </a>
             </td>
             <td >
-              <button style="display: inline-block;" type="button" class="btn btn-warning btn-sm px-3">
+              <a href="/accounts/{{ $user->id }}/update" style="display: inline-block;" type="button" class="btn btn-warning btn-sm px-3">
               <i class="fas fa-exclamation-triangle"></i>
-              </button>
+                </a>
             </td>
             <td>
-              <button style="display: inline-block;" type="button" class="btn btn-info btn-sm px-3">
+              <a href="/accounts/{{ $user->id }}/detail" style="display: inline-block;" type="button" class="btn btn-info btn-sm px-3">
                 <i class="fas fa-info"></i>
-              </button>
+                </a>
             </td>
           </tr>
           @endforeach

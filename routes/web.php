@@ -24,6 +24,11 @@ Route::middleware('auth')->group(function(){
     /* Accounts */
     Route::get("/accounts/show",'AccountController@index');
     Route::get("/accounts/create",'AccountController@create');
+    Route::post("/accounts/create","AccountController@make_data");
+    Route::get("/accounts/{id}/delete","AccountController@delete");
+    Route::get("/accounts/{id}/update","AccountController@update");
+    Route::post('/accounts/upgrade','AccountController@upgrade');
+    Route::get("/accounts/{id}/detail",'AccountController@detail');
 
     /* Department */
     Route::get("/department/show","DepartmentController@index");

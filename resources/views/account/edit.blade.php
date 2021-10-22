@@ -14,19 +14,20 @@
     <div class="row justify-content-center">
         <div class="col-md-9">
         @include("layouts.flash_message")
-            <form method="post">
+            <form action="/accounts/upgrade" method="post">
                 @csrf
                 <!-- 2 column grid layout with text inputs for the first and last names -->
+                <input type="hidden" name='id' value="{{$data->id}}">
                 <div class="row mb-4">
                     <div class="col">
                         <div class="form-outline">
-                            <input type="text" name="name" id="form6Example1" class="form-control" required />
+                            <input value="{{ $data->name }}" type="text" name="name" id="form6Example1" class="form-control" required />
                             <label class="form-label" for="form6Example1">Name</label>
                         </div>
                     </div>
                     <div class="col">
                         <div class="form-outline">
-                            <input type="text" name="employ_id" id="form6Example2" required class="form-control" />
+                            <input value="{{ $data->employ_id }}" type="text" name="employ_id" id="form6Example2" required class="form-control" />
                             <label class="form-label" for="form6Example2">Employ Id</label>
                         </div>
                     </div>
@@ -35,13 +36,13 @@
                 <div class="row mb-4">
                     <div class="col">
                         <div class="form-outline">
-                            <input type="number" name="phone" id="form6Example1" class="form-control" required />
+                            <input value="{{ $data->phone }}" type="number" name="phone" id="form6Example1" class="form-control" required />
                             <label class="form-label" for="form6Example1">Phone</label>
                         </div>
                     </div>
                     <div class="col">
                         <div class="form-outline">
-                            <input type="email" name="email" id="form6Example2" class="form-control" required />
+                            <input value="{{ $data->email }}" type="email" name="email" id="form6Example2" class="form-control" required />
                             <label class="form-label" for="form6Example2">Email </label>
                         </div>
                     </div>
@@ -56,7 +57,7 @@
                     </div>
                     <div class="col">
                         <div class="form-outline">
-                            <input name="dob" type="date" id="form6Example21" class="form-control" required />
+                            <input value="{{ $data->birthday }}" name="dob" type="date" id="form6Example21" class="form-control" required />
                             <label class="form-label" for="form6Example21">Date of Birth </label>
                         </div>
                     </div>
@@ -103,14 +104,14 @@
 
                 <!-- Message input -->
                 <div class="form-outline mb-4">
-                    <textarea name="address" class="form-control" id="form6Example7" rows="4" required></textarea>
+                    <textarea name="address" class="form-control" id="form6Example7" rows="4" required> {{ $data->address }}</textarea>
                     <label class="form-label" for="form6Example7"> Address </label>
                 </div>
 
 
 
                 <!-- Submit button -->
-                <button type="submit" class="btn btn-primary btn-block mb-4">Make Account</button>
+                <button type="submit" class="btn btn-warning btn-block mb-4">Upgrade Account</button>
             </form>
 
         </div>
